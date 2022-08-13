@@ -1,10 +1,17 @@
 import React from "react";
 import styled from "styled-components";
 
-const Button = () => {
+interface Props {
+  valid: boolean;
+  isSignUp: boolean;
+}
+
+const Button = ({ valid, isSignUp }: Props) => {
   return (
     <>
-      <StyledButton>로그인</StyledButton>
+      <StyledButton disabled={!valid} onClick={(e) => e.preventDefault()}>
+        {isSignUp ? "로그인" : "회원가입"}
+      </StyledButton>
     </>
   );
 };
@@ -22,4 +29,11 @@ const StyledButton = styled.button`
   font-weight: bold;
   background-color: #6d6d6d;
   cursor: pointer;
+
+  &:active {
+    background-color: #212121;
+  }
+  &:disabled {
+    background-color: #f5f5f5;
+  }
 `;

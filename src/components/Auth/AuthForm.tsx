@@ -2,18 +2,42 @@ import React from "react";
 import styled from "styled-components";
 import Input from "./Input";
 import Button from "./Button";
+import { FormType } from "../../types/formType";
 
-const AuthForm = () => {
+interface Props {
+  formState: {
+    form: FormType;
+    onChange: (e: React.ChangeEvent<HTMLInputElement>) => void;
+    valid: boolean;
+  };
+
+  setIsSignUp: React.Dispatch<React.SetStateAction<boolean>>;
+  isSignUp: boolean;
+}
+
+const AuthForm = ({ formState, isSignUp, setIsSignUp }: Props) => {
   return (
     <Wrapper>
       <Title>
-        <h3>Login</h3>
+        <h3>{isSignUp ? "Login" : "Register"}</h3>
       </Title>
       <Form>
-        <Input type="text" title="Email" />
-        <Input type="password" title="Password" />
-        <Button />
-        <p>회원가입</p>
+        <Input
+          type="text"
+          title="Email"
+          name="email"
+          onChange={formState.onChange}
+        />
+        <Input
+          type="password"
+          title="Password"
+          name="password"
+          onChange={formState.onChange}
+        />
+        <Button valid={formState.valid} isSignUp={isSignUp} />
+        <p onClick={() => setIsSignUp(!isSignUp)}>
+          {isSignUp ? "회원가입" : "로그인"}
+        </p>
       </Form>
     </Wrapper>
   );

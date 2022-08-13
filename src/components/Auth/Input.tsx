@@ -1,16 +1,19 @@
 import React from "react";
 import styled from "styled-components";
+import useForm from "../../hooks/useForm";
 
 interface Props {
   title: string;
   type: string;
+  name: string;
+  onChange: (e: React.ChangeEvent<HTMLInputElement>) => void;
 }
 
-const Input = ({ title, type }: Props) => {
+const Input = ({ title, type, name, onChange }: Props) => {
   return (
     <InputContainer>
       <span>{title}</span>
-      <input type={type} />
+      <input type={type} onChange={(e) => onChange(e)} name={name} />
     </InputContainer>
   );
 };

@@ -1,33 +1,29 @@
 import React from "react";
 import styled from "styled-components";
-import { theme } from "../../styles/theme";
+import Input from "./Input";
+import Button from "./Button";
 
-const LoginForm = () => {
+const AuthForm = () => {
   return (
     <Wrapper>
       <Title>
         <h3>Login</h3>
       </Title>
       <Form>
-        <label>
-          <span>Email</span>
-          <Input />
-        </label>
-        <label>
-          <span>Password</span>
-          <Input type="password" />
-        </label>
-        <Button>로그인</Button>
+        <Input type="text" title="Email" />
+        <Input type="password" title="Password" />
+        <Button />
+        <p>회원가입</p>
       </Form>
     </Wrapper>
   );
 };
 
-export default LoginForm;
+export default AuthForm;
 
 const Wrapper = styled.div`
   width: 26em;
-  height: 19em;
+  height: 22em;
 `;
 const Title = styled.div`
   background-color: #484848;
@@ -58,25 +54,10 @@ const Form = styled.form`
     font-weight: bold;
     margin-top: 10px;
   }
-`;
 
-const Input = styled.input`
-  width: 26em;
-  padding: 10px;
-  margin-top: 10px;
-  border-radius: 10px;
-  border: solid #c7c7c7;
-`;
-
-const Button = styled.button`
-  width: 15em;
-  padding: 13px;
-  margin-top: 30px;
-  border-radius: 10px;
-  border: none;
-  color: #ffffff;
-  font-size: 20px;
-  font-weight: bold;
-  background-color: #6d6d6d;
-  cursor: pointer;
+  p {
+    text-decoration: underline;
+    margin-top: 10px;
+    cursor: pointer;
+  }
 `;

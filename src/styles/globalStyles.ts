@@ -10,8 +10,13 @@ const GlobalStyle = createGlobalStyle`
   }
 
   body {
-     background-color: ${theme.bgColors.main};
-     font-family: 'Poppins', sans-serif;
+    width: 100%;
+    height: 100vh;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    background-color: ${theme.bgColors.main};
+    font-family: 'Noto Sans KR', sans-serif;
   }
 `;
 

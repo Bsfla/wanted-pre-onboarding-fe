@@ -4,13 +4,14 @@ import styled from "styled-components";
 interface Props {
   valid: boolean;
   isSignUp: boolean;
+  onClick: (e: React.MouseEvent<HTMLButtonElement, MouseEvent>) => void;
 }
 
-const Button = ({ valid, isSignUp }: Props) => {
+const Button = ({ valid, isSignUp, onClick }: Props) => {
   return (
     <>
-      <StyledButton disabled={!valid} onClick={(e) => e.preventDefault()}>
-        {isSignUp ? "로그인" : "회원가입"}
+      <StyledButton disabled={!valid} onClick={(e) => onClick(e)}>
+        {isSignUp ? "회원가입" : "로그인"}
       </StyledButton>
     </>
   );

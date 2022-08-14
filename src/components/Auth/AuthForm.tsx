@@ -13,13 +13,14 @@ interface Props {
 
   setIsSignUp: React.Dispatch<React.SetStateAction<boolean>>;
   isSignUp: boolean;
+  onClick: (e: React.MouseEvent<HTMLButtonElement, MouseEvent>) => void;
 }
 
-const AuthForm = ({ formState, isSignUp, setIsSignUp }: Props) => {
+const AuthForm = ({ formState, isSignUp, setIsSignUp, onClick }: Props) => {
   return (
     <Wrapper>
       <Title>
-        <h3>{isSignUp ? "Login" : "Register"}</h3>
+        <h3>{isSignUp ? "Register" : "Login"}</h3>
       </Title>
       <Form>
         <Input
@@ -27,16 +28,20 @@ const AuthForm = ({ formState, isSignUp, setIsSignUp }: Props) => {
           title="Email"
           name="email"
           onChange={formState.onChange}
+          placeholder="이메일 입력"
+          value={formState.form.email}
         />
         <Input
           type="password"
           title="Password"
           name="password"
           onChange={formState.onChange}
+          placeholder="비밀번호 입력"
+          value={formState.form.password}
         />
-        <Button valid={formState.valid} isSignUp={isSignUp} />
+        <Button valid={formState.valid} isSignUp={isSignUp} onClick={onClick} />
         <p onClick={() => setIsSignUp(!isSignUp)}>
-          {isSignUp ? "회원가입" : "로그인"}
+          {isSignUp ? "로그인" : "회원가입"}
         </p>
       </Form>
     </Wrapper>

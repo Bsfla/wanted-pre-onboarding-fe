@@ -1,4 +1,4 @@
-import { useCallback, useEffect, useState } from "react";
+import { useEffect, useState } from "react";
 import { FormType } from "../types/formType";
 
 const useForm = () => {
@@ -24,7 +24,7 @@ const useForm = () => {
     onValid();
   }, [form]);
 
-  return { form, onChange, valid };
+  return { form, onChange, valid, setForm };
 };
 
 export default useForm;

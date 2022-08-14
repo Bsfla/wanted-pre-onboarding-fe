@@ -6,14 +6,22 @@ interface Props {
   title: string;
   type: string;
   name: string;
+  placeholder: string;
+  value: string;
   onChange: (e: React.ChangeEvent<HTMLInputElement>) => void;
 }
 
-const Input = ({ title, type, name, onChange }: Props) => {
+const Input = ({ title, type, name, placeholder, value, onChange }: Props) => {
   return (
     <InputContainer>
       <span>{title}</span>
-      <input type={type} onChange={(e) => onChange(e)} name={name} />
+      <input
+        type={type}
+        placeholder={placeholder}
+        onChange={(e) => onChange(e)}
+        name={name}
+        value={value}
+      />
     </InputContainer>
   );
 };

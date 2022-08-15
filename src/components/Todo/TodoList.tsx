@@ -2,7 +2,6 @@ import React from "react";
 import styled from "styled-components";
 import TodoListItem from "./TodoListItem";
 import TodoCreate from "./TodoCreate";
-import TodoListEditItem from "./TodoListEditItem";
 
 const TodoList = () => {
   return (

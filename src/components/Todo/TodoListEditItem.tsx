@@ -1,9 +1,11 @@
 import { useRef, useEffect } from "react";
 import styled from "styled-components";
 import { MdDone } from "react-icons/md";
+
 interface Props {
   setIsEdit: React.Dispatch<React.SetStateAction<boolean>>;
 }
+
 const TodoListEditItem = ({ setIsEdit }: Props) => {
   const inputRef = useRef<HTMLInputElement>(null);
 

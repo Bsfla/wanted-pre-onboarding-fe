@@ -3,3 +3,9 @@ export const setToken = (token: string) => {
     return window.localStorage.setItem("access_token", token);
   return undefined;
 };
+
+export const getToken = () => {
+  if (typeof window !== "undefined")
+    return window.localStorage.getItem("access_token");
+  return undefined;
+};

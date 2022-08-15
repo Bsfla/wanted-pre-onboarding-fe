@@ -16,7 +16,6 @@ const TodoList = () => {
       </TitleBlock>
       <TodoListBlock>
         <TodoListItem />
-        <TodoListEditItem />
       </TodoListBlock>
       <TodoCreate />
     </Wrapper>

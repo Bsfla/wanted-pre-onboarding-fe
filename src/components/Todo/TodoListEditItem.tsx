@@ -1,8 +1,10 @@
 import { useRef, useEffect } from "react";
 import styled from "styled-components";
 import { MdDone } from "react-icons/md";
-
-const TodoListEditItem = () => {
+interface Props {
+  setIsEdit: React.Dispatch<React.SetStateAction<boolean>>;
+}
+const TodoListEditItem = ({ setIsEdit }: Props) => {
   const inputRef = useRef<HTMLInputElement>(null);
 
   useEffect(() => {
@@ -10,12 +12,12 @@ const TodoListEditItem = () => {
   }, [inputRef]);
 
   return (
-    <TodoItemBlock>
+    <>
       <CheckCircle></CheckCircle>
       <Text value="안녕" ref={inputRef}></Text>
       <EditButton>완료</EditButton>
-      <CancelButton>취소</CancelButton>
-    </TodoItemBlock>
+      <CancelButton onClick={() => setIsEdit(false)}>취소</CancelButton>
+    </>
   );
 };
 

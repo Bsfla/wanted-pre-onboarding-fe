@@ -1,25 +1,28 @@
-import React, { useState } from "react";
+import React from "react";
 import styled from "styled-components";
 import { MdDone, MdDelete } from "react-icons/md";
 import { BsPencilFill } from "react-icons/bs";
-import Item from "./Item";
-import TodoListEditItem from "./TodoListEditItem";
 
-const TodoListItem = () => {
-  const [isEdit, setIsEdit] = useState<boolean>(false);
+interface Props {
+  setIsEdit: React.Dispatch<React.SetStateAction<boolean>>;
+}
 
+const Item = ({ setIsEdit }: Props) => {
   return (
-    <TodoItemBlock>
-      {isEdit ? (
-        <TodoListEditItem setIsEdit={setIsEdit} />
-      ) : (
-        <Item setIsEdit={setIsEdit} />
-      )}
-    </TodoItemBlock>
+    <>
+      <CheckCircle></CheckCircle>
+      <Text>안녕</Text>
+      <Edit onClick={() => setIsEdit(true)}>
+        <BsPencilFill />
+      </Edit>
+      <Remove>
+        <MdDelete />
+      </Remove>
+    </>
   );
 };
 
-export default TodoListItem;
+export default Item;
 
 const Edit = styled.div`
   display: flex;

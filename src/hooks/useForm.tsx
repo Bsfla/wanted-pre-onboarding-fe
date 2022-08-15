@@ -1,4 +1,4 @@
-import { useEffect, useState } from "react";
+import { useCallback, useEffect, useState } from "react";
 import { FormType } from "../types/formType";
 
 const useForm = () => {
@@ -15,14 +15,14 @@ const useForm = () => {
     });
   };
 
-  const onValid = () => {
+  const onValid = useCallback(() => {
     if (form.email.includes("@") && form.password.length >= 8) setValid(true);
     else setValid(false);
-  };
+  }, [form]);
 
   useEffect(() => {
     onValid();
-  }, [form]);
+  }, [form, onValid]);
 
   return { form, onChange, valid, setForm };
 };

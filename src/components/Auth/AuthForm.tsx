@@ -25,7 +25,7 @@ const AuthForm = ({ formState, isSignUp, setIsSignUp, onClick }: Props) => {
       <Form>
         <Input
           type="text"
-          title="Email"
+          title="email"
           name="email"
           onChange={formState.onChange}
           placeholder="이메일 입력"
@@ -33,7 +33,7 @@ const AuthForm = ({ formState, isSignUp, setIsSignUp, onClick }: Props) => {
         />
         <Input
           type="password"
-          title="Password"
+          title="password"
           name="password"
           onChange={formState.onChange}
           placeholder="비밀번호 입력"

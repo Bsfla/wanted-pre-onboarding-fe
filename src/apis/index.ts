@@ -1,5 +1,5 @@
 import axios from "axios";
-import { API_URL } from "../utills/endPoint";
+import { API_URL } from "../utils/endPoint";
 
 const customAxios = axios.create({
   baseURL: API_URL,

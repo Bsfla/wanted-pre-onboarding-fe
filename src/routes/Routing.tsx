@@ -1,12 +1,13 @@
 import React from "react";
-import { Routes, Route, Navigate } from "react-router-dom";
-import AuthForm from "../components/Auth/AuthForm";
+import { Routes, Route } from "react-router-dom";
 import Auth from "../pages/Auth";
+import Todo from "../pages/Todo";
 
 const Routing = () => {
   return (
     <Routes>
       <Route path="/" element={<Auth />} />
+      <Route path="/todo" element={<Todo />} />
     </Routes>
   );
 };

@@ -3,12 +3,10 @@ import AuthForm from "../components/Auth/AuthForm";
 import useForm from "../hooks/useForm";
 import { signIn, signUp } from "../apis/auth";
 import { setToken } from "../utils/token";
-import { useNavigate } from "react-router-dom";
 
 const Auth = () => {
   const [isSignUp, setIsSignUp] = useState<boolean>(false);
   const formState = useForm();
-  const navigate = useNavigate();
 
   const onClick = (e: React.MouseEvent<HTMLButtonElement, MouseEvent>) => {
     e.preventDefault();

@@ -7,7 +7,6 @@ import { getToken } from "../utils/token";
 const Routing = () => {
   const token = getToken();
 
-  console.log(token);
   return (
     <Routes>
       <Route

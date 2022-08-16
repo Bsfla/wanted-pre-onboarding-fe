@@ -1,8 +1,7 @@
-import { useRef, useEffect, useState } from "react";
+import React, { useRef, useEffect, useState } from "react";
 import styled, { css } from "styled-components";
 import { MdDone } from "react-icons/md";
 import TodoType from "../../types/todosType";
-import { stringify } from "querystring";
 
 interface Props {
   setIsEdit: React.Dispatch<React.SetStateAction<boolean>>;
@@ -46,13 +45,6 @@ const TodoListEditItem = ({ setIsEdit, todo, onEdit }: Props) => {
 };
 
 export default TodoListEditItem;
-
-const TodoItemBlock = styled.div`
-  display: flex;
-  align-items: center;
-  padding-top: 12px;
-  padding-bottom: 12px;
-`;
 
 const CheckCircle = styled.div<{ isCompleted: boolean }>`
   width: 32px;

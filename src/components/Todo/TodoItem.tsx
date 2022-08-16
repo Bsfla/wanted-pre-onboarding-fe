@@ -1,4 +1,3 @@
-import React from "react";
 import styled from "styled-components";
 import { MdDone, MdDelete } from "react-icons/md";
 import { FaTimes } from "react-icons/fa";
@@ -11,7 +10,7 @@ interface Props {
   onDelete: (id: number) => void;
 }
 
-const Item = ({ setIsEdit, todo, onDelete }: Props) => {
+const TodoItem = ({ setIsEdit, todo, onDelete }: Props) => {
   return (
     <>
       {todo.isCompleted ? (
@@ -34,7 +33,7 @@ const Item = ({ setIsEdit, todo, onDelete }: Props) => {
   );
 };
 
-export default Item;
+export default TodoItem;
 
 const Edit = styled.div`
   display: flex;
@@ -51,26 +50,6 @@ const Remove = styled.div`
   justify-content: center;
   color: #ff6b6b;
   font-size: 24px;
-  cursor: pointer;
-`;
-
-const TodoItemBlock = styled.div`
-  display: flex;
-  align-items: center;
-  padding-top: 12px;
-  padding-bottom: 12px;
-`;
-
-const CheckCircle = styled.div`
-  width: 32px;
-  height: 32px;
-  border-radius: 16px;
-  border: 1px solid #ced4da;
-  font-size: 24px;
-  display: flex;
-  align-items: center;
-  justify-content: center;
-  margin-right: 20px;
   cursor: pointer;
 `;
 

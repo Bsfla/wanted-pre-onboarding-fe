@@ -3,7 +3,6 @@ import TodoListItem from "./TodoListItem";
 import TodoCreate from "./TodoCreate";
 import TodoType from "../../types/todosType";
 import { removeToken } from "../../utils/token";
-import { useNavigate, useLocation } from "react-router-dom";
 
 interface Props {
   todos: TodoType[];
@@ -13,8 +12,6 @@ interface Props {
 }
 
 const TodoList = ({ todos, onCreate, onEdit, onDelete }: Props) => {
-  const navigate = useNavigate();
-
   return (
     <Wrapper>
       <TodoHeader>
@@ -31,7 +28,7 @@ const TodoList = ({ todos, onCreate, onEdit, onDelete }: Props) => {
         </LogOutButton>
       </TitleBlock>
       <TodoListBlock>
-        {todos.map((todo: TodoType) => (
+        {todos.map((todo: TodoType, index: number) => (
           <TodoListItem
             todo={todo}
             key={todo.id}
@@ -100,7 +97,7 @@ const LogOutButton = styled.button`
 `;
 
 const TodoListBlock = styled.div`
-  flex: 1;
+  height: 20em;
   padding: 20px 32px;
   padding-bottom: 48px;
   overflow-y: auto;

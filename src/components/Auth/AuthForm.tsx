@@ -9,6 +9,7 @@ interface Props {
     form: FormType;
     onChange: (e: React.ChangeEvent<HTMLInputElement>) => void;
     valid: boolean;
+    setForm: React.Dispatch<React.SetStateAction<FormType>>;
   };
 
   setIsSignUp: React.Dispatch<React.SetStateAction<boolean>>;
@@ -40,7 +41,16 @@ const AuthForm = ({ formState, isSignUp, setIsSignUp, onClick }: Props) => {
           value={formState.form.password}
         />
         <Button valid={formState.valid} isSignUp={isSignUp} onClick={onClick} />
-        <p onClick={() => setIsSignUp(!isSignUp)}>
+        <p
+          onClick={() => {
+            setIsSignUp(!isSignUp);
+            formState.setForm({
+              ...formState.form,
+              email: "",
+              password: "",
+            });
+          }}
+        >
           {isSignUp ? "로그인" : "회원가입"}
         </p>
       </Form>

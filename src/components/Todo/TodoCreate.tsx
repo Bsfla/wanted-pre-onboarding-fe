@@ -1,5 +1,5 @@
 import React, { useState } from "react";
-import styled, { css } from "styled-components";
+import styled from "styled-components";
 import { MdAdd } from "react-icons/md";
 
 interface Props {
@@ -16,7 +16,7 @@ function TodoCreate({ onCreate }: Props) {
   return (
     <>
       <InsertFormPositioner>
-        <InsertForm>
+        <InsertForm onSubmit={(e) => e.preventDefault()}>
           <Input
             value={value}
             onChange={(e) => onChange(e)}
@@ -25,7 +25,7 @@ function TodoCreate({ onCreate }: Props) {
         </InsertForm>
       </InsertFormPositioner>
       <CircleButton
-        onClick={(e) => {
+        onClick={() => {
           onCreate({ todo: value });
         }}
       >
@@ -35,7 +35,7 @@ function TodoCreate({ onCreate }: Props) {
   );
 }
 
-export default TodoCreate;
+export default React.memo(TodoCreate);
 
 const CircleButton = styled.button`
   background-color: #484848;

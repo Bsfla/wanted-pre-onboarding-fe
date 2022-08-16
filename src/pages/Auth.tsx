@@ -31,7 +31,7 @@ const Auth = () => {
         .then((res) => {
           if (res.status === 200) {
             setToken(res.data.access_token);
-            navigate("/todo");
+            window.location.reload();
           }
         })
         .catch((err) => alert(err.response.data.message));

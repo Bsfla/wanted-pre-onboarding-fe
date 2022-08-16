@@ -9,3 +9,8 @@ export const getToken = () => {
     return window.localStorage.getItem("access_token");
   return undefined;
 };
+
+export const removeToken = () => {
+  if (typeof window !== "undefined") return window.localStorage.clear();
+  return undefined;
+};

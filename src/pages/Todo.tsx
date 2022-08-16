@@ -8,26 +8,32 @@ const Todo = () => {
   const [todos, setTodos] = useState<TodoType[]>([]);
 
   const onCreate = (body: { todo: string }) => {
-    createTodo(body).then((res) => {
-      if (res.status === 201) setTodos([...todos, res.data]);
-    });
+    createTodo(body)
+      .then((res) => {
+        if (res.status === 201) setTodos([...todos, res.data]);
+      })
+      .catch((err) => alert(err));
   };
 
   const onEdit = (body: { todo: string; isCompleted: boolean; id: number }) => {
-    updateTodo(body).then((res) => {
-      if (res.status === 200) {
-        const { id } = body;
-        setTodos(todos.map((todo) => (todo.id === id ? res.data : todo)));
-      }
-    });
+    updateTodo(body)
+      .then((res) => {
+        if (res.status === 200) {
+          const { id } = body;
+          setTodos(todos.map((todo) => (todo.id === id ? res.data : todo)));
+        }
+      })
+      .catch((err) => alert(err));
   };
 
   const onDelete = (id: number) => {
-    deleteTodo(id).then((res) => {
-      if (res.status === 204) {
-        setTodos(todos.filter((todo) => todo.id !== id));
-      }
-    });
+    deleteTodo(id)
+      .then((res) => {
+        if (res.status === 204) {
+          setTodos(todos.filter((todo) => todo.id !== id));
+        }
+      })
+      .catch((err) => alert(err));
   };
 
   useEffect(() => {

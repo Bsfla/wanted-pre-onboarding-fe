@@ -1,6 +1,7 @@
 import React from "react";
 import styled from "styled-components";
 import { MdDone, MdDelete } from "react-icons/md";
+import { FaTimes } from "react-icons/fa";
 import { BsPencilFill } from "react-icons/bs";
 import TodoType from "../../types/todosType";
 
@@ -13,7 +14,15 @@ interface Props {
 const Item = ({ setIsEdit, todo, onDelete }: Props) => {
   return (
     <>
-      <CheckCircle></CheckCircle>
+      {todo.isCompleted ? (
+        <Completed>
+          <MdDone />
+        </Completed>
+      ) : (
+        <UnCompleted>
+          <FaTimes />
+        </UnCompleted>
+      )}
       <Text>{todo.todo}</Text>
       <Edit onClick={() => setIsEdit(true)}>
         <BsPencilFill />
@@ -63,6 +72,24 @@ const CheckCircle = styled.div`
   justify-content: center;
   margin-right: 20px;
   cursor: pointer;
+`;
+
+const Completed = styled.div`
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  color: #38d9a9;
+  font-size: 24px;
+  margin-right: 20px;
+`;
+
+const UnCompleted = styled.div`
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  color: #ff6b6b;
+  font-size: 24px;
+  margin-right: 20px;
 `;
 
 const Text = styled.div`

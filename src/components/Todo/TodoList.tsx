@@ -1,8 +1,9 @@
-import React from "react";
 import styled from "styled-components";
 import TodoListItem from "./TodoListItem";
 import TodoCreate from "./TodoCreate";
 import TodoType from "../../types/todosType";
+import { removeToken } from "../../utils/token";
+import { useNavigate, useLocation } from "react-router-dom";
 
 interface Props {
   todos: TodoType[];
@@ -12,13 +13,20 @@ interface Props {
 }
 
 const TodoList = ({ todos, onCreate, onEdit, onDelete }: Props) => {
+  const navigate = useNavigate();
+
   return (
     <Wrapper>
       <TodoHeader>
         <h3>ToDoList</h3>
       </TodoHeader>
       <TitleBlock>
-        <LogOutButton onClick={() => console.log("로그아웃")}>
+        <LogOutButton
+          onClick={() => {
+            removeToken();
+            window.location.reload();
+          }}
+        >
           로그아웃
         </LogOutButton>
       </TitleBlock>

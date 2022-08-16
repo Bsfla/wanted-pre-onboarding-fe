@@ -2,21 +2,30 @@ import React from "react";
 import styled from "styled-components";
 import TodoListItem from "./TodoListItem";
 import TodoCreate from "./TodoCreate";
+import TodoType from "../../types/todosType";
 
-const TodoList = () => {
+interface Props {
+  todos: TodoType[];
+  onCreate: (body: { todo: string }) => void;
+}
+
+const TodoList = ({ todos, onCreate }: Props) => {
   return (
     <Wrapper>
       <TodoHeader>
         <h3>ToDoList</h3>
       </TodoHeader>
       <TitleBlock>
-        <span>할 일 2개남음</span>
-        <LogOutButton>로그아웃</LogOutButton>
+        <LogOutButton onClick={() => console.log("로그아웃")}>
+          로그아웃
+        </LogOutButton>
       </TitleBlock>
       <TodoListBlock>
-        <TodoListItem />
+        {todos.map((todo: TodoType) => (
+          <TodoListItem todo={todo} key={todo.id} />
+        ))}
       </TodoListBlock>
-      <TodoCreate />
+      <TodoCreate onCreate={onCreate} />
     </Wrapper>
   );
 };

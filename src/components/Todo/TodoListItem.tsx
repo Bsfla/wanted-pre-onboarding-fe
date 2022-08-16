@@ -4,16 +4,21 @@ import { MdDone, MdDelete } from "react-icons/md";
 import { BsPencilFill } from "react-icons/bs";
 import Item from "./Item";
 import TodoListEditItem from "./TodoListEditItem";
+import TodoType from "../../types/todosType";
 
-const TodoListItem = () => {
+interface Props {
+  todo: TodoType;
+}
+
+const TodoListItem = ({ todo }: Props) => {
   const [isEdit, setIsEdit] = useState<boolean>(false);
 
   return (
     <TodoItemBlock>
       {isEdit ? (
-        <TodoListEditItem setIsEdit={setIsEdit} />
+        <TodoListEditItem setIsEdit={setIsEdit} todo={todo} />
       ) : (
-        <Item setIsEdit={setIsEdit} />
+        <Item setIsEdit={setIsEdit} todo={todo} />
       )}
     </TodoItemBlock>
   );

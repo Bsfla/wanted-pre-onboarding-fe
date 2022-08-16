@@ -2,16 +2,18 @@ import React from "react";
 import styled from "styled-components";
 import { MdDone, MdDelete } from "react-icons/md";
 import { BsPencilFill } from "react-icons/bs";
+import TodoType from "../../types/todosType";
 
 interface Props {
   setIsEdit: React.Dispatch<React.SetStateAction<boolean>>;
+  todo: TodoType;
 }
 
-const Item = ({ setIsEdit }: Props) => {
+const Item = ({ setIsEdit, todo }: Props) => {
   return (
     <>
       <CheckCircle></CheckCircle>
-      <Text>안녕</Text>
+      <Text>{todo.todo}</Text>
       <Edit onClick={() => setIsEdit(true)}>
         <BsPencilFill />
       </Edit>

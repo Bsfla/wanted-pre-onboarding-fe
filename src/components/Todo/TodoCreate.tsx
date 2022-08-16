@@ -1,16 +1,30 @@
-import React from "react";
+import React, { useState } from "react";
 import styled, { css } from "styled-components";
 import { MdAdd } from "react-icons/md";
 
-function TodoCreate() {
+interface Props {
+  onCreate: (body: { todo: string }) => void;
+}
+
+function TodoCreate({ onCreate }: Props) {
+  const [value, setValue] = useState<string>("");
+
+  const onChange = (e: React.ChangeEvent<HTMLInputElement>) => {
+    setValue(e.target.value);
+  };
+
   return (
     <>
       <InsertFormPositioner>
         <InsertForm>
-          <Input autoFocus placeholder="할 일을 입력 후, Enter 를 누르세요" />
+          <Input
+            value={value}
+            onChange={(e) => onChange(e)}
+            placeholder="할 일을 입력 후, 버튼을 누르세요"
+          />
         </InsertForm>
       </InsertFormPositioner>
-      <CircleButton>
+      <CircleButton onClick={() => onCreate({ todo: value })}>
         <MdAdd />
       </CircleButton>
     </>

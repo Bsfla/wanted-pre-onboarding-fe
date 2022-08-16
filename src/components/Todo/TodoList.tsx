@@ -7,9 +7,11 @@ import TodoType from "../../types/todosType";
 interface Props {
   todos: TodoType[];
   onCreate: (body: { todo: string }) => void;
+  onEdit: (body: { todo: string; isCompleted: boolean; id: number }) => void;
+  onDelete: (id: number) => void;
 }
 
-const TodoList = ({ todos, onCreate }: Props) => {
+const TodoList = ({ todos, onCreate, onEdit, onDelete }: Props) => {
   return (
     <Wrapper>
       <TodoHeader>
@@ -22,7 +24,12 @@ const TodoList = ({ todos, onCreate }: Props) => {
       </TitleBlock>
       <TodoListBlock>
         {todos.map((todo: TodoType) => (
-          <TodoListItem todo={todo} key={todo.id} />
+          <TodoListItem
+            todo={todo}
+            key={todo.id}
+            onEdit={onEdit}
+            onDelete={onDelete}
+          />
         ))}
       </TodoListBlock>
       <TodoCreate onCreate={onCreate} />

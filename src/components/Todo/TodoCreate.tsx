@@ -24,7 +24,11 @@ function TodoCreate({ onCreate }: Props) {
           />
         </InsertForm>
       </InsertFormPositioner>
-      <CircleButton onClick={() => onCreate({ todo: value })}>
+      <CircleButton
+        onClick={(e) => {
+          onCreate({ todo: value });
+        }}
+      >
         <MdAdd />
       </CircleButton>
     </>

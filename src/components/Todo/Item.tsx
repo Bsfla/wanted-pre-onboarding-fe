@@ -7,9 +7,10 @@ import TodoType from "../../types/todosType";
 interface Props {
   setIsEdit: React.Dispatch<React.SetStateAction<boolean>>;
   todo: TodoType;
+  onDelete: (id: number) => void;
 }
 
-const Item = ({ setIsEdit, todo }: Props) => {
+const Item = ({ setIsEdit, todo, onDelete }: Props) => {
   return (
     <>
       <CheckCircle></CheckCircle>
@@ -17,7 +18,7 @@ const Item = ({ setIsEdit, todo }: Props) => {
       <Edit onClick={() => setIsEdit(true)}>
         <BsPencilFill />
       </Edit>
-      <Remove>
+      <Remove onClick={() => onDelete(todo.id)}>
         <MdDelete />
       </Remove>
     </>

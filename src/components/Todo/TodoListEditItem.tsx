@@ -1,15 +1,23 @@
-import { useRef, useEffect } from "react";
-import styled from "styled-components";
+import { useRef, useEffect, useState } from "react";
+import styled, { css } from "styled-components";
 import { MdDone } from "react-icons/md";
 import TodoType from "../../types/todosType";
+import { stringify } from "querystring";
 
 interface Props {
   setIsEdit: React.Dispatch<React.SetStateAction<boolean>>;
   todo: TodoType;
+  onEdit: (body: { todo: string; isCompleted: boolean; id: number }) => void;
 }
 
-const TodoListEditItem = ({ setIsEdit, todo }: Props) => {
+const TodoListEditItem = ({ setIsEdit, todo, onEdit }: Props) => {
+  const [isCompleted, setIsCompleted] = useState<boolean>(todo.isCompleted);
+  const [value, setValue] = useState<string>(todo.todo);
   const inputRef = useRef<HTMLInputElement>(null);
+
+  const onChange = (e: React.ChangeEvent<HTMLInputElement>) => {
+    setValue(e.target.value);
+  };
 
   useEffect(() => {
     inputRef.current?.focus();
@@ -17,9 +25,21 @@ const TodoListEditItem = ({ setIsEdit, todo }: Props) => {
 
   return (
     <>
-      <CheckCircle></CheckCircle>
-      <Text value={todo.todo} ref={inputRef}></Text>
-      <EditButton>완료</EditButton>
+      <CheckCircle
+        isCompleted={isCompleted}
+        onClick={() => setIsCompleted(!isCompleted)}
+      >
+        {isCompleted && <MdDone />}
+      </CheckCircle>
+      <Text value={value} ref={inputRef} onChange={(e) => onChange(e)}></Text>
+      <EditButton
+        onClick={() => {
+          onEdit({ todo: value, isCompleted, id: todo.id });
+          setIsEdit(false);
+        }}
+      >
+        완료
+      </EditButton>
       <CancelButton onClick={() => setIsEdit(false)}>취소</CancelButton>
     </>
   );
@@ -34,7 +54,7 @@ const TodoItemBlock = styled.div`
   padding-bottom: 12px;
 `;
 
-const CheckCircle = styled.div`
+const CheckCircle = styled.div<{ isCompleted: boolean }>`
   width: 32px;
   height: 32px;
   border-radius: 16px;
@@ -45,6 +65,12 @@ const CheckCircle = styled.div`
   justify-content: center;
   margin-right: 20px;
   cursor: pointer;
+  ${(props) =>
+    props.isCompleted &&
+    css`
+      border: 1px solid #38d9a9;
+      color: #38d9a9;
+    `}
 `;
 
 const Text = styled.input`

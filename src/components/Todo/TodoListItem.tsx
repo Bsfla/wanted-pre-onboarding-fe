@@ -8,17 +8,19 @@ import TodoType from "../../types/todosType";
 
 interface Props {
   todo: TodoType;
+  onEdit: (body: { todo: string; isCompleted: boolean; id: number }) => void;
+  onDelete: (id: number) => void;
 }
 
-const TodoListItem = ({ todo }: Props) => {
+const TodoListItem = ({ todo, onEdit, onDelete }: Props) => {
   const [isEdit, setIsEdit] = useState<boolean>(false);
 
   return (
     <TodoItemBlock>
       {isEdit ? (
-        <TodoListEditItem setIsEdit={setIsEdit} todo={todo} />
+        <TodoListEditItem setIsEdit={setIsEdit} todo={todo} onEdit={onEdit} />
       ) : (
-        <Item setIsEdit={setIsEdit} todo={todo} />
+        <Item setIsEdit={setIsEdit} todo={todo} onDelete={onDelete} />
       )}
     </TodoItemBlock>
   );

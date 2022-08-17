@@ -1,7 +1,8 @@
-import React, { useRef, useEffect, useState } from "react";
+import React, { useRef, useEffect, useState, useCallback } from "react";
 import styled, { css } from "styled-components";
 import { MdDone } from "react-icons/md";
 import TodoType from "../../types/todosType";
+import { theme } from "../../styles/theme";
 
 interface Props {
   setIsEdit: React.Dispatch<React.SetStateAction<boolean>>;
@@ -14,9 +15,9 @@ const TodoListEditItem = ({ setIsEdit, todo, onEdit }: Props) => {
   const [value, setValue] = useState<string>(todo.todo);
   const inputRef = useRef<HTMLInputElement>(null);
 
-  const onChange = (e: React.ChangeEvent<HTMLInputElement>) => {
+  const onChange = useCallback((e: React.ChangeEvent<HTMLInputElement>) => {
     setValue(e.target.value);
-  };
+  }, []);
 
   useEffect(() => {
     inputRef.current?.focus();
@@ -78,7 +79,7 @@ const Text = styled.input`
 const CancelButton = styled.button`
   width: 40px;
   padding: 3px;
-  color: white;
+  color: ${theme.colors.white};
   font-weight: bold;
   background-color: #ff6b6b;
   cursor: pointer;
@@ -89,7 +90,7 @@ const CancelButton = styled.button`
 const EditButton = styled.button`
   width: 40px;
   padding: 3px;
-  color: white;
+  color: ${theme.colors.white};
   font-weight: bold;
   background-color: #38d9a9;
   border: none;

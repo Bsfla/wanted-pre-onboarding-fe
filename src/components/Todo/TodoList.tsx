@@ -3,6 +3,7 @@ import TodoListItem from "./TodoListItem";
 import TodoCreate from "./TodoCreate";
 import TodoType from "../../types/todosType";
 import { removeToken } from "../../utils/token";
+import { theme } from "../../styles/theme";
 
 interface Props {
   todos: TodoType[];
@@ -48,7 +49,7 @@ const Wrapper = styled.div`
   width: 512px;
   height: 600px;
   position: relative;
-  background: white;
+  background: ${theme.colors.white};
   border-radius: 16px;
   box-shadow: 0 0 8px 0 rgba(0, 0, 0, 0.04);
 
@@ -60,7 +61,7 @@ const Wrapper = styled.div`
 `;
 
 const TodoHeader = styled.div`
-  background-color: #484848;
+  background-color: ${theme.colors.gray};
   width: 100%;
   padding: 20px;
   display: flex;
@@ -68,7 +69,7 @@ const TodoHeader = styled.div`
   border-radius: 5px 5px 0px 0px;
 
   h3 {
-    color: #ffffff;
+    color: ${theme.colors.white};
   }
 `;
 
@@ -89,8 +90,8 @@ const LogOutButton = styled.button`
   width: 5em;
   border-radius: 5px;
   border: none;
-  color: white;
-  background-color: #484848;
+  color: ${theme.colors.white};
+  background-color: ${theme.colors.gray};
   margin-left: 10px;
   font-weight: bold;
   cursor: pointer;

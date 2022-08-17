@@ -1,6 +1,7 @@
 import React, { useState } from "react";
 import styled from "styled-components";
 import { MdAdd } from "react-icons/md";
+import { theme } from "../../styles/theme";
 
 interface Props {
   onCreate: (body: { todo: string }) => void;
@@ -38,7 +39,7 @@ function TodoCreate({ onCreate }: Props) {
 export default React.memo(TodoCreate);
 
 const CircleButton = styled.button`
-  background-color: #484848;
+  background-color: ${theme.colors.gray};
   &:hover {
     background: #63e6be;
   }
@@ -58,7 +59,7 @@ const CircleButton = styled.button`
   left: 50%;
   bottom: 0px;
   transform: translate(-50%, 50%);
-  color: white;
+  color: ${theme.colors.white};
   border-radius: 50%;
   border: none;
   outline: none;

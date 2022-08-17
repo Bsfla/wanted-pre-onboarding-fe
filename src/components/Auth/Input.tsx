@@ -2,7 +2,6 @@ import React from "react";
 import styled from "styled-components";
 
 interface Props {
-  title: string;
   type: string;
   name: string;
   placeholder: string;
@@ -10,10 +9,10 @@ interface Props {
   onChange: (e: React.ChangeEvent<HTMLInputElement>) => void;
 }
 
-const Input = ({ title, type, name, placeholder, value, onChange }: Props) => {
+const Input = ({ type, name, placeholder, value, onChange }: Props) => {
   return (
     <InputContainer>
-      <span>{title}</span>
+      <span>{name}</span>
       <input
         type={type}
         placeholder={placeholder}

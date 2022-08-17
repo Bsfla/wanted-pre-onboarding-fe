@@ -8,12 +8,15 @@ const useForm = () => {
   });
   const [valid, setValid] = useState<boolean>(false);
 
-  const onChange = (e: React.ChangeEvent<HTMLInputElement>) => {
-    setForm({
-      ...form,
-      [e.target.name]: e.target.value,
-    });
-  };
+  const onChange = useCallback(
+    (e: React.ChangeEvent<HTMLInputElement>) => {
+      setForm({
+        ...form,
+        [e.target.name]: e.target.value,
+      });
+    },
+    [form]
+  );
 
   const onValid = useCallback(() => {
     if (form.email.includes("@") && form.password.length >= 8) setValid(true);

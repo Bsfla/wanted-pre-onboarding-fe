@@ -1,5 +1,6 @@
 import React from "react";
 import styled from "styled-components";
+import { theme } from "../../styles/theme";
 import Input from "./Input";
 import Button from "./Button";
 import { FormType } from "../../types/formType";
@@ -26,7 +27,6 @@ const AuthForm = ({ formState, isSignUp, setIsSignUp, onClick }: Props) => {
       <Form>
         <Input
           type="text"
-          title="email"
           name="email"
           onChange={formState.onChange}
           placeholder="이메일 입력"
@@ -34,7 +34,6 @@ const AuthForm = ({ formState, isSignUp, setIsSignUp, onClick }: Props) => {
         />
         <Input
           type="password"
-          title="password"
           name="password"
           onChange={formState.onChange}
           placeholder="비밀번호 입력"
@@ -65,7 +64,7 @@ const Wrapper = styled.div`
   height: 22em;
 `;
 const Title = styled.div`
-  background-color: #484848;
+  background-color: ${theme.colors.gray};
   width: 100%;
   padding: 20px;
   display: flex;
@@ -73,14 +72,14 @@ const Title = styled.div`
   border-radius: 5px 5px 0px 0px;
 
   h3 {
-    color: #ffffff;
+    color: ${theme.colors.white};
   }
 `;
 
 const Form = styled.form`
   width: 100%;
   height: 100%;
-  background-color: #ffffff;
+  background-color: ${theme.colors.white};
   display: flex;
   flex-direction: column;
   align-items: center;

@@ -1,5 +1,6 @@
 import React from "react";
 import styled from "styled-components";
+import { theme } from "../../styles/theme";
 
 interface Props {
   valid: boolean;
@@ -25,7 +26,7 @@ const StyledButton = styled.button`
   margin-top: 30px;
   border-radius: 10px;
   border: none;
-  color: #ffffff;
+  color: ${theme.colors.white};
   font-size: 20px;
   font-weight: bold;
   background-color: #6d6d6d;

@@ -3,6 +3,7 @@ import { MdDone, MdDelete } from "react-icons/md";
 import { FaTimes } from "react-icons/fa";
 import { BsPencilFill } from "react-icons/bs";
 import TodoType from "../../types/todosType";
+import React from "react";
 
 interface Props {
   setIsEdit: React.Dispatch<React.SetStateAction<boolean>>;

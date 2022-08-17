@@ -1,4 +1,4 @@
-import React, { useState } from "react";
+import { useState } from "react";
 import styled from "styled-components";
 import TodoItem from "./TodoItem";
 import TodoListEditItem from "./TodoListEditItem";
@@ -24,7 +24,7 @@ const TodoListItem = ({ todo, onEdit, onDelete }: Props) => {
   );
 };
 
-export default React.memo(TodoListItem);
+export default TodoListItem;
 
 const TodoItemBlock = styled.div`
   display: flex;

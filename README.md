@@ -1,46 +1,53 @@
-# Getting Started with Create React App
+# 💻 Wanted pre onboarding 프론트엔드 선발 과제
 
-This project was bootstrapped with [Create React App](https://github.com/facebook/create-react-app).
+- 과제 수행자(분야): 배범수(프론트엔드)
 
-## Available Scripts
+<br />
 
-In the project directory, you can run:
+### 📄 프로젝트 소개
 
-### `npm start`
+- 안녕하세요. 이번 원티드 프리온보딩 프론트엔드 선발 과제를 진행하게된 배범수라고 합니다. 저는 이번 프로젝트를 `TypeScript`와 `React` 기반으로 프로젝트를 진행으며, `Styled-Components`를 사용해서 전체적인 스타일링을 했습니다.
+- API 요청과 같은 비동기 처리는 `Axios`를 이용하여 구현하였습니다.
 
-Runs the app in the development mode.\
-Open [http://localhost:3000](http://localhost:3000) to view it in the browser.
+<br />
 
-The page will reload if you make edits.\
-You will also see any lint errors in the console.
+### 📺 프로젝트 링크
 
-### `npm test`
+- https://wanted-pre-onboarding-fe-two.vercel.app/
 
-Launches the test runner in the interactive watch mode.\
-See the section about [running tests](https://facebook.github.io/create-react-app/docs/running-tests) for more information.
+<br />
 
-### `npm run build`
+### 📄 프로젝트 설치 및 실행 방법
 
-Builds the app for production to the `build` folder.\
-It correctly bundles React in production mode and optimizes the build for the best performance.
+- npm i를 통해 패키지 설치
+- npm start를 통해 실행
 
-The build is minified and the filenames include the hashes.\
-Your app is ready to be deployed!
+<br />
 
-See the section about [deployment](https://facebook.github.io/create-react-app/docs/deployment) for more information.
+### 📄 주요 기술 스택
 
-### `npm run eject`
+- TypeScript
+- React
+- Styled-Components
 
-**Note: this is a one-way operation. Once you `eject`, you can’t go back!**
+<br />
 
-If you aren’t satisfied with the build tool and configuration choices, you can `eject` at any time. This command will remove the single build dependency from your project.
+### 📄 주요 기능 구현 완료 목록
 
-Instead, it will copy all the configuration files and the transitive dependencies (webpack, Babel, ESLint, etc) right into your project so you have full control over them. All of the commands except `eject` will still work, but they will point to the copied scripts so you can tweak them. At this point you’re on your own.
+- 로그인 & 회원가입 페이지
+  - '/' 경로에 로그인 회원가입 기능 구현
+  - 로그인 기능 구현
+  - 회원가입 기능 구현
+  - 이메일 패스워드 유효성 검사 후 통과했을 때 제출 버튼 활성화
+  - Jwt 토큰 로컬 스토리지에 저장
+- 투두리스트 페이지
+  - '/todo' 경로에 투두 리스트 페이지 구현
+  - 투두 리스트 목록 보여주기
+  - 투두리스트의 내용과 완료 여부 표시
+  - 입력창에 할 일 입력 시 투두리스트에 새롭게 추가
+  - 투두 리스트의 개별 아이템 수정 기능 구현 (내용 및 완료 여부 수정)
+  - 투두 리스트 개별 아이템 삭제 기능 구현
+- 로그인 여부에 따른 리다이렉트 처리 구현
+- 로그아웃 기능 추가 구현
 
-You don’t have to ever use `eject`. The curated feature set is suitable for small and middle deployments, and you shouldn’t feel obligated to use this feature. However we understand that this tool wouldn’t be useful if you couldn’t customize it when you are ready for it.
-
-## Learn More
-
-You can learn more in the [Create React App documentation](https://facebook.github.io/create-react-app/docs/getting-started).
-
-To learn React, check out the [React documentation](https://reactjs.org/).
+<br />
